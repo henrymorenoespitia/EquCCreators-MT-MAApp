@@ -1,0 +1,63 @@
+.gallery{
+    background: rgb(255, 255, 255);
+}
+.contendor-imagen{
+    width: 23%;
+    display: inline-table;
+    align-items: center; 
+    justify-content: space-evenly;
+    position: relative;
+    flex-direction: column;
+    text-align: center;
+}
+body{
+    margin:0;
+}
+.contenedor-galeria{
+    width: 100%;
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin:0 auto;
+    align-items: center; 
+    flex-direction: column;
+    padding: 20px;
+}
+.nombre-producto{
+    font-family: Impact, sans-serif;
+}
+.linea{
+    border: 1px solid #000;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu{
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: center; 
+    justify-content: space-evenly;
+}
+.login{
+    text-align-last: right; 
+
+}
+.img-galeria{
+    width: 80%;
+    margin: 20px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .6);
+    cursor: pointer;
+}
+.contenedor{
+    width: 100%;
+    display:block;
+    overflow: hidden;
+    margin: auto;
+    padding: 60px 0px;
+    margin: 0 auto;
+}
+.item-button{
+    text-decoration: solid;
+}
