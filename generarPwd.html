@@ -16,7 +16,7 @@ and open the template in the editor.
     <body>
 <!-- seccion de campos para email y contraseña :: poder VER la contraseña y validar "seguridad" de contraseña -->
 
-<div class="container">
+<div class="containerSegundo">
   <form action="/">
     <label for="usrname">Contraseña</label>
     <input type="text" id="usrname" name="usrname" placeholder="nueva contraseña" required="">
@@ -36,9 +36,9 @@ and open the template in the editor.
 </div>
 <div id="message" style="display: none;">
   <h3>La contraseña debe contener:</h3>
-  <p id="letter" class="valid">Una <b>Una letra minuscula </b></p>
-  <p id="capital" class="invalid">Una <b> letra mayuscula</b></p>
-  <p id="number" class="invalid">Un <b>número</b></p>
+  <p id="minuscula" class="valid">Una <b>Una letra minuscula </b></p>
+  <p id="mayuscula" class="invalid">Una <b> letra mayuscula</b></p>
+  <p id="numero" class="invalid">Un <b>número</b></p>
   <p id="length" class="invalid">Minimo <b> 8 caracteres</b></p>
 </div>
 
@@ -46,27 +46,27 @@ and open the template in the editor.
 
 <script>
 
-  var myInput = document.getElementById("thePassword");
-  var letter = document.getElementById("letter");
-  var capital = document.getElementById("capital");
-  var number = document.getElementById("number");
+  var Contrasena = document.getElementById("thePassword");
+  var minuscula = document.getElementById("minuscula");
+  var mayuscula = document.getElementById("mayuscula");
+  var numero = document.getElementById("numero");
   var length = document.getElementById("length");
 
   // When the user clicks on the password field, show the message box
-  myInput.onfocus = function() {
+  Contrasena.onfocus = function() {
   document.getElementById("message").style.display = "block";
   }
 
   // When the user clicks outside of the password field, hide the message box
-  myInput.onblur = function() {
+  Contrasena.onblur = function() {
   document.getElementById("message").style.display = "none";
   }
 
   // When the user starts to type something inside the password field
-  myInput.onkeyup = function() {
+  Contrasena.onkeyup = function() {
   // Validate lowercase letters
-  var lowerCaseLetters = /[a-z]/g;
-  if(myInput.value.match(lowerCaseLetters)) {  
+  var minuscula = /[a-z]/g;
+  if(Contrasena.value.match(minuscula)) {  
       letter.classList.remove("invalid");
       letter.classList.add("valid");
   } else {
@@ -76,26 +76,26 @@ and open the template in the editor.
   
   // Validate capital letters
   var upperCaseLetters = /[A-Z]/g;
-  if(myInput.value.match(upperCaseLetters)) {  
-      capital.classList.remove("invalid");
-      capital.classList.add("valid");
+  if(Contrasena.value.match(upperCaseLetters)) {  
+      mayuscula.classList.remove("invalid");
+      mayuscula.classList.add("valid");
   } else {
-      capital.classList.remove("valid");
-      capital.classList.add("invalid");
+      mayuscula.classList.remove("valid");
+      mayuscula.classList.add("invalid");
   }
 
-  // Validate numbers
-  var numbers = /[0-9]/g;
-  if(myInput.value.match(numbers)) {  
-      number.classList.remove("invalid");
-      number.classList.add("valid");
+  // Validate numeros
+  var numeros = /[0-9]/g;
+  if(Contrasena.value.match(numeros)) {  
+      numero.classList.remove("invalid");
+      numero.classList.add("valid");
   } else {
-      number.classList.remove("valid");
-      number.classList.add("invalid");
+      numero.classList.remove("valid");
+      numero.classList.add("invalid");
   }
   
   // Validate length
-  if(myInput.value.length >= 8) {
+  if(Contrasena.value.length >= 8) {
       length.classList.remove("invalid");
       length.classList.add("valid");
   } else {

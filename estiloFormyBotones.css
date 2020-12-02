@@ -1,4 +1,6 @@
-  /* Style all input fields */
+/* estilos basados y adaptados de los ejemplos en 3WSchool*/
+
+/* Estilo para todos las etiquetas inputs */
   input {
     width: 80%;       /* width: 100%;*/
     padding: 12px;    /*padding: 12px; */
@@ -11,39 +13,48 @@
   }
 
   .col-50 {
-    -ms-flex: 50%; /* IE10 */
+    -ms-flex: 50%;
     flex: 50%;
   }
   .columna {
-    display: -ms-flexbox; /* IE10 */
+    display: -ms-flexbox; 
     display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: 0 -16px;
   }
 
   .a { left: 12%; top: 10px;  }
   
-  /* Style the submit button */
+  /* Estilo del boton de enviar */
   input[type=submit] {
     background-color: #4c63af;
     color: white;
     width: 25%;
   }
   
-  /* Style the container for inputs */
+  /* Estilo de contenedores de inputs */
   .container {
     background-color: #f1f1f1;
     padding: 10px; 
   }
+
   .containerPrimero {
     background-color: #f1f1f1;
     padding: 5px;
     position: relative; left: 20px; top: 100px; 
     width: 45%;
   }
+
+  .containerSegundo {
+    background-color: #f1f1f1;
+    padding: 5px;
+    position: relative; left: 20px; top: 20px; 
+    width: 45%;
+  }
   
-  /* The message box is shown when the user clicks on the password field */
+ 
+   /* Este mensaje es desplegado al darle click en el campo de generar contraseña */
   #message {
     display:none;
     background: #dab40b;
@@ -51,6 +62,7 @@
     position: relative;
     padding: 20px;
     margin-top: 10px;
+    
   }
   
   #message p {
@@ -58,7 +70,7 @@
     font-size: 18px;
   }
   
-  /* Add a green text color and a checkmark when the requirements are right */
+  /*colocar color verde a las indicaciones de verficacion de la contraseña valida*/
   .valid {
     color: green;
   }
@@ -69,9 +81,10 @@
     content: "✔";
   }
   
-  /* Add a red text color and an "x" when the requirements are wrong */
+    /*colocar color verde a las indicaciones de verficacion de la contraseña no valida*/
+
   .invalid {
-    color: red;
+    color: rgb(167, 10, 10);
   }
   
   .invalid:before {
@@ -132,7 +145,7 @@
     transform: translateX(26px);
   }
   
-  /* Rounded sliders */
+ /*deslizadores*/
   .slider.round {
     border-radius: 34px;
   }
