@@ -6,10 +6,11 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TusAccesorios App</title>
+        <title>Login-TusAccesorios App</title>
         <!--<link rel = "stylesheet" href="estilos.css" type="text/css" media="all"/>
         <link rel = "stylesheet" href="botones.css" type="text/css" media="all"/>-->
         <link rel = "stylesheet" href="estiloFormyBotones.css" type="text/css" media="all"/>
+    
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,36 +18,48 @@ and open the template in the editor.
     </head>
     <body>
 <!-- seccion de campos para email y contraseña :: poder VER la contraseña y validar "seguridad" de contraseña -->
-        <div>
-            <div>
-                <form action="/file" method="POST">
-                    <label for="usuario">Usuario </label> <br/>
-                        <input type="text" value="" id="usuario"><br/>
-
-                    <label for="thePassword">Contraseña </label><br/>
-                        <input type="password" value="" id="thePassword">
-                    <!-- elemento que alterna la vista de la contraseña -->
-                        <br/>
-                        <label class="switch">
-                            <input type="checkbox" onclick="alternarVista()">
-                            <span class="slider round"></span>
-                                <script src="alternarVistaPwd.js"></script> 
-                        </label>
-                            Show Password    
+       
+        <span>
+            <div class>
+                <div>
+                    <form action="/file" method="POST">
+                        <label for="usuario">Usuario </label> <br/>
+                            <input type="text" value="" id="usuario"><br/>
+    
+                        <label for="thePassword">Contraseña </label><br/>
+                            <input type="password" value="" id="thePassword">
+                        <!-- elemento que alterna la vista de la contraseña -->
+                            <br/>
+                            <label class="switch">
+                                <input type="checkbox" onclick="alternarVista()">
+                                <span class="slider round"></span>
+                                    <script src="alternarVistaPwd.js"></script> 
+                            </label>
+                                Show Password    
+                                
+                            <div>
+                                    <span>
+                                        ¿ Olvido la contraseña ?
+                                        <input type="submit" value="Ingresar">
+                                    </span>
+                                    
+                    
+                            </div>
                             
-                        <div>
-                                <span>
-                                    ¿ Olvido la contraseña ?
-                                    <input type="submit" value="Ingresar">
-                                </span>
+    
+                    </form>
+                </div>
                 
-                        </div>
-                        
-
-                </form>
             </div>
-            
-        </div>
+
+            <div>
+
+            </div>
+        </span>
+        
+
+
+
 
     </body>
 </html>
