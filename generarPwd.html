@@ -19,10 +19,10 @@ and open the template in the editor.
 <div class="container">
   <form action="/">
     <label for="usrname">Contraseña</label>
-    <input type="text" id="usrname" name="usrname" required="">
+    <input type="text" id="usrname" name="usrname" placeholder="nueva contraseña" required="">
 <br>
     <label for="thePassword">Repetir Contraseña</label>
-    <input type="password" id="thePassword" name="thePassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un numero y una Mayuscula y una Minuscula, y al menos 8 coracteres" required="">
+    <input type="password" id="thePassword" name="thePassword" placeholder="repita la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un numero y una Mayuscula y una Minuscula, y al menos 8 coracteres" required="">
     <div>
         <label class="switch">
             <input type="checkbox" onclick="alternarVista()">
@@ -36,8 +36,8 @@ and open the template in the editor.
 </div>
 <div id="message" style="display: none;">
   <h3>La contraseña debe contener:</h3>
-  <p id="letter" class="valid">Una <b>Una letra minuscula </b> letter</p>
-  <p id="capital" class="invalid">Una <b> letra mayuscula</b> letter</p>
+  <p id="letter" class="valid">Una <b>Una letra minuscula </b></p>
+  <p id="capital" class="invalid">Una <b> letra mayuscula</b></p>
   <p id="number" class="invalid">Un <b>número</b></p>
   <p id="length" class="invalid">Minimo <b> 8 caracteres</b></p>
 </div>

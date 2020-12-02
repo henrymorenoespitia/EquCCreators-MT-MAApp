@@ -1,13 +1,28 @@
   /* Style all input fields */
   input {
-    width: 40%;       /* width: 100%;*/
+    width: 80%;       /* width: 100%;*/
     padding: 12px;    /*padding: 12px; */
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 16px;
+    /*position: relative; left: 20px; top: 10px; */
   }
+
+  .col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
+  .columna {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+  }
+
+  .a { left: 12%; top: 10px;  }
   
   /* Style the submit button */
   input[type=submit] {
@@ -19,7 +34,13 @@
   /* Style the container for inputs */
   .container {
     background-color: #f1f1f1;
-    padding: 10px;
+    padding: 10px; 
+  }
+  .containerPrimero {
+    background-color: #f1f1f1;
+    padding: 5px;
+    position: relative; left: 20px; top: 100px; 
+    width: 45%;
   }
   
   /* The message box is shown when the user clicks on the password field */
