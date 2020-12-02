@@ -21,9 +21,16 @@ and open the template in the editor.
     <label for="usrname">Contraseña</label>
     <input type="text" id="usrname" name="usrname" required="">
 <br>
-    <label for="psw">Repetir Contraseña</label>
-    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un numero y una Mayuscula y una Minuscula, y al menos 8 coracteres" required="">
-    
+    <label for="thePassword">Repetir Contraseña</label>
+    <input type="password" id="thePassword" name="thePassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un numero y una Mayuscula y una Minuscula, y al menos 8 coracteres" required="">
+    <div>
+        <label class="switch">
+            <input type="checkbox" onclick="alternarVista()">
+            <span class="slider round"></span>
+                <script src="alternarVistaPwd.js"></script> 
+        </label>
+            Mostrar Contraseña    
+    </div>  
     <input type="submit" value="Generar Contraseña">
   </form>
 </div>
@@ -39,7 +46,7 @@ and open the template in the editor.
 
 <script>
 
-  var myInput = document.getElementById("psw");
+  var myInput = document.getElementById("thePassword");
   var letter = document.getElementById("letter");
   var capital = document.getElementById("capital");
   var number = document.getElementById("number");
