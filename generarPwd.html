@@ -18,31 +18,84 @@ and open the template in the editor.
 
 <div class="containerSegundo">
   <form action="/">
-    <label for="usrname">Contraseña</label>
-    <input type="text" id="usrname" name="usrname" placeholder="nueva contraseña" required="">
-<br>
-    <label for="thePassword">Repetir Contraseña</label>
-    <input type="password" id="thePassword" name="thePassword" placeholder="repita la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un numero y una Mayuscula y una Minuscula, y al menos 8 coracteres" required="">
+    <label for="thePassword">Generar nueva Contraseña </label>
+    <input type="password" style="border-width: 10px;" id="thePassword" name="thePassword" placeholder="nueva contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un numero y una Mayuscula y una Minuscula, y al menos 8 coracteres" required="">
+      <br/>
+    <label for="repPassword">Repetir Contraseña</label>
+    <input type="password" style="border-width: 10px;" id="repPassword" name="repPassword" placeholder="repita la contraseña" required="">
+      <br/>
+    
     <div>
         <label class="switch">
-            <input type="checkbox" onclick="alternarVista()">
+            <input type="checkbox" onclick="alternarVista();">
             <span class="slider round"></span>
                 <script src="alternarVistaPwd.js"></script> 
         </label>
             Mostrar Contraseña    
     </div>  
-    <input type="submit" value="Generar Contraseña">
+    <input type="submit" value="Generar Contraseña" disabled>
   </form>
 </div>
 <div id="message" style="display: none;">
+
   <h3>La contraseña debe contener:</h3>
   <p id="minuscula" class="valid">Una <b>Una letra minuscula </b></p>
   <p id="mayuscula" class="invalid">Una <b> letra mayuscula</b></p>
   <p id="numero" class="invalid">Un <b>número</b></p>
   <p id="longitud" class="invalid">Minimo <b> 8 caracteres</b></p>
+  <h3>Error:</h3>
+  <p id="noCoincidePwd" class="invalid">la <b>contraseña NO coincide</b></p>
 </div>
 
+<!--
+  <script>
 
+      
+      var repContrasena = document.getElementById("repPassword"); 
+      repContrasena.onkeyup = function(){
+        
+      var CoicidenciaPwd = document.getElementById("coincidenciaPwd");
+
+      contrasena_valor = document.getElementById("thePassword").value;
+      if(repContrasena.value.match(contrasena_valor)){
+        repContrasena.style.borderColor = "#65CCf3";
+        console.log("hello hello")
+      }else{
+        repContrasena.style.borderColor = "#E95D0F";
+        console.log("NOO hello hello")
+      }
+      }
+</script>
+-->
+
+<script>
+  var switch_ = document ;
+
+
+  function contrastar(){
+      let contr_text = contrasena_nueva.value;
+      let repContr_texto = repContr.value;
+      if(contr_text == repContr_texto){
+        repContr.style.borderColor = "#65CCf3" ;
+        //repContr.style.borderColor = "#65CCf3";
+
+        //console.log("hello hello")
+        //console.log(contr_texto);
+        console.log("coinciden")
+      } else {
+        repContr.style.borderColor = "#E95D0F";
+        
+        //console.log("hello hello")
+        console.log("NOO coinciden")
+      }
+    }
+    var repContr = document.querySelector("#repPassword");
+    var contrasena_nueva = document.querySelector("#thePassword");
+    repContr.addEventListener("keyup", contrastar, false);
+    
+    
+
+</script>
 
 <script>
 
@@ -50,9 +103,13 @@ and open the template in the editor.
   var minuscula = document.getElementById("minuscula");
   var mayuscula = document.getElementById("mayuscula");
   var numero = document.getElementById("numero");
-  var longitud = document.getElementById("longitud");
+  var longitud = document.getElementById("longitud"); 
+  var colorBorde = 0;
+  var contMay = 0;
+  var contMin = 0;
+  var contNum = 0;
+  var contLong = 0;
 
-  // When the user clicks on the password field, show the message box
   Contrasena.onfocus = function() {
   document.getElementById("message").style.display = "block";
   }
@@ -69,9 +126,18 @@ and open the template in the editor.
   if(Contrasena.value.match(minusculas)) {  
       minuscula.classList.remove("invalid");
       minuscula.classList.add("valid");
+      if(contMin == 0){
+        colorBorde += 1;
+        contMin += 1;
+      }else{}
+      
   } else {
     minuscula.classList.remove("valid");
     minuscula.classList.add("invalid");
+    if(contMin>0){
+        colorBorde -= 1;
+        contMin -= 1;
+      }else{}
   }
   
   // validar que haya al menos mayuscula
@@ -79,9 +145,17 @@ and open the template in the editor.
   if(Contrasena.value.match(mayusculas)) {  
       mayuscula.classList.remove("invalid");
       mayuscula.classList.add("valid");
+      if(contMay == 0){
+        colorBorde += 1;
+        contMay += 1;
+      }else{}
   } else {
       mayuscula.classList.remove("valid");
       mayuscula.classList.add("invalid");
+      if(contMay>0){
+        colorBorde -= 1;
+        contMay -= 1;
+      }else{}
   }
 
   // validar que se digite al menos 1 numero
@@ -89,20 +163,47 @@ and open the template in the editor.
   if(Contrasena.value.match(numeros)) {  
       numero.classList.remove("invalid");
       numero.classList.add("valid");
+      if(contNum == 0){
+        colorBorde += 1;
+        contNum += 1;
+      }else{}
   } else {
       numero.classList.remove("valid");
       numero.classList.add("invalid");
+      if(contNum>0){
+        colorBorde -= 1;
+        contNum -= 1;
+      }else{}
   }
   
   // validar la longitud
   if(Contrasena.value.length >= 8) {
     longitud.classList.remove("invalid");
     longitud.classList.add("valid");
+    if(contLong == 0){
+        colorBorde += 1;
+        contLong += 1;
+      }else{}
   } else {
     longitud.classList.remove("valid");
     longitud.classList.add("invalid");
+    if(contLong>0){
+        colorBorde -= 1;
+        contLong -= 1;
+      }else{}
   }
+
+  if (colorBorde == 4){
+    Contrasena.style.borderColor = "#65CCf3";
+
+  }else{
+    Contrasena.style.borderColor = "#E95D0F";
   }
+  
+  }
+  
+ 
+
 
 </script>
 
