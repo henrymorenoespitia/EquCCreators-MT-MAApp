@@ -39,7 +39,7 @@ and open the template in the editor.
   <p id="minuscula" class="valid">Una <b>Una letra minuscula </b></p>
   <p id="mayuscula" class="invalid">Una <b> letra mayuscula</b></p>
   <p id="numero" class="invalid">Un <b>número</b></p>
-  <p id="length" class="invalid">Minimo <b> 8 caracteres</b></p>
+  <p id="longitud" class="invalid">Minimo <b> 8 caracteres</b></p>
 </div>
 
 
@@ -50,7 +50,7 @@ and open the template in the editor.
   var minuscula = document.getElementById("minuscula");
   var mayuscula = document.getElementById("mayuscula");
   var numero = document.getElementById("numero");
-  var length = document.getElementById("length");
+  var longitud = document.getElementById("longitud");
 
   // When the user clicks on the password field, show the message box
   Contrasena.onfocus = function() {
@@ -62,21 +62,21 @@ and open the template in the editor.
   document.getElementById("message").style.display = "none";
   }
 
-  // When the user starts to type something inside the password field
+  // onKeyup es cuando el usuario comienza a digitar y levanta la tecla comienza a validr
   Contrasena.onkeyup = function() {
-  // Validate lowercase letters
-  var minuscula = /[a-z]/g;
-  if(Contrasena.value.match(minuscula)) {  
-      letter.classList.remove("invalid");
-      letter.classList.add("valid");
+  // validar que haya al menos una minuscula
+  var minusculas = /[a-z]/g;
+  if(Contrasena.value.match(minusculas)) {  
+      minuscula.classList.remove("invalid");
+      minuscula.classList.add("valid");
   } else {
-      letter.classList.remove("valid");
-      letter.classList.add("invalid");
+    minuscula.classList.remove("valid");
+    minuscula.classList.add("invalid");
   }
   
-  // Validate capital letters
-  var upperCaseLetters = /[A-Z]/g;
-  if(Contrasena.value.match(upperCaseLetters)) {  
+  // validar que haya al menos mayuscula
+  var mayusculas = /[A-Z]/g;
+  if(Contrasena.value.match(mayusculas)) {  
       mayuscula.classList.remove("invalid");
       mayuscula.classList.add("valid");
   } else {
@@ -84,7 +84,7 @@ and open the template in the editor.
       mayuscula.classList.add("invalid");
   }
 
-  // Validate numeros
+  // validar que se digite al menos 1 numero
   var numeros = /[0-9]/g;
   if(Contrasena.value.match(numeros)) {  
       numero.classList.remove("invalid");
@@ -94,13 +94,13 @@ and open the template in the editor.
       numero.classList.add("invalid");
   }
   
-  // Validate length
+  // validar la longitud
   if(Contrasena.value.length >= 8) {
-      length.classList.remove("invalid");
-      length.classList.add("valid");
+    longitud.classList.remove("invalid");
+    longitud.classList.add("valid");
   } else {
-      length.classList.remove("valid");
-      length.classList.add("invalid");
+    longitud.classList.remove("valid");
+    longitud.classList.add("invalid");
   }
   }
 
