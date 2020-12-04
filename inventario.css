@@ -12,6 +12,10 @@ body {
   top: 0px;
 }
 
+.topnav a {
+  display: inline-block;
+}
+
 .icon {
   position: fixed;
   top: 15px;
@@ -78,7 +82,6 @@ body {
   padding: 20px 24px;
   text-decoration: none;
   font-size: 19px;
-  width: 15%;
 }
 
 .topnav a:hover {
@@ -90,7 +93,6 @@ body {
 .topnav a.active {
   background-color: #4caf50;
   color: white;
-  width: 3%;
 }
 
 .gallery {
@@ -138,5 +140,5 @@ body {
 .especificaciones {
   text-align: center;
   font-size: large;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
